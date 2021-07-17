@@ -20,7 +20,7 @@ public class AutomatskoTestiranje {
 
 
 	public static void main(String[] args) throws InterruptedException {
-		int WaitTime = 3000;		
+		int WaitTime = 3000;
 
 		LogIn login;
 		FilteringAndBrowsing filteringAndBrowsing;
@@ -56,7 +56,6 @@ public class AutomatskoTestiranje {
 	    login.getTroubleButton().click();
 	    String helppage = driver.getCurrentUrl();
 	    assertEquals("https://help.etsy.com/hc/en-us/articles/115015410188", helppage);
-		System.out.println("gugi");
 		driver.navigate().back();
 						
 		
@@ -64,10 +63,9 @@ public class AutomatskoTestiranje {
 		
 		login.getSignUpButton().click();
 		login.getEmail().clear();
-		login.getEmail().sendKeys("jelicaa1234@gmail.com");
+		login.getEmail().sendKeys("jelicbb12231234@gmail.com");
 		login.getContinueButton().click();
         assertEquals(true, login.getCreateAccountMenu().isDisplayed());
-        System.out.println("gugi");
         Thread.sleep(WaitTime);
        	login.getFirstName().click();
 		login.getFirstName().clear();
@@ -79,6 +77,7 @@ public class AutomatskoTestiranje {
 		Thread.sleep(WaitTime);
 		login.getRegisterInButton().click();
 		assertTrue(login.getSignInIcons().isDisplayed());
+		Thread.sleep(WaitTime);
 		
 		//User can search for the specific items using search bar
 		
@@ -86,7 +85,6 @@ public class AutomatskoTestiranje {
 		filteringAndBrowsing.getSearchBar().sendKeys("purse");
 		filteringAndBrowsing.getBinocularIcon().click();
 		String currentUrl = driver.getCurrentUrl();
-		System.out.println(currentUrl);
 		assertEquals("https://www.etsy.com/search?q=purse", currentUrl);
 		
 		//User can filter wanted items with price range filter
@@ -94,10 +92,8 @@ public class AutomatskoTestiranje {
 		filteringAndBrowsing.getNameOfGroupItems().click();
 		String currentUrl1 = driver.getCurrentUrl();
 		assertEquals("https://www.etsy.com/c/jewelry-and-accessories?ref=catnav-10855", currentUrl1);
-		System.out.println(currentUrl1);
 		filteringAndBrowsing.getRadioButton().click();
 		assertEquals(true,filteringAndBrowsing.getPriceInfo().isDisplayed());
-		System.out.println("kjskdjsk");
 		filteringAndBrowsing.getPriceInfo().click();
 		
 		//User can fiter wanted items with colour filter
@@ -111,7 +107,7 @@ public class AutomatskoTestiranje {
 		filteringAndBrowsing.getSortByButton().click();
 		filteringAndBrowsing.getHighPriceButton().click();
 		assertEquals(true,filteringAndBrowsing.getHighPriceInfo().isDisplayed());
-		System.out.println("oki");
+		
 		
 		driver.close();
 		
